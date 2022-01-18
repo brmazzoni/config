@@ -2,3 +2,8 @@
 
 coutry codes:
 - China: `CN`
+
+Sometimes, need to add the following line to `boot/cmdline.txt`:
+```
+usbhid.mousepoll=0
+```
