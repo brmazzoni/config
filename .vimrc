@@ -1,4 +1,17 @@
 set number
 syntax on
+set background=dark
 set wildmenu
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+set ai
+set ruler
+set hlsearch
+autocmd Filetype python,arduino,c,cpp,verilog setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd Filetype make setlocal tabstop=2 shiftwidth=4 noexpandtab
+autocmd BufNewFile,BufRead *.jack set syntax=cpp
+highlight Comment ctermfg=green
+
+autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
