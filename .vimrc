@@ -15,3 +15,11 @@ autocmd BufReadPost *
       \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
       \ |   exe "normal! g`\""
       \ | endif
+
+augroup tmux
+  autocmd!
+  if exists('$TMUX')
+    autocmd BufReadPost,FileReadPost,BufNewFile,FocusGained * call system("tmux rename-window " . expand("%:t"))
+    autocmd VimLeave,FocusLost * call system("tmux set-window-option automatic-rename")
+  endif
+augroup END
