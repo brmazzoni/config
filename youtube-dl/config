@@ -1,0 +1,16 @@
+# Always extract audio
+#-x
+
+# Save all videos under Movies directory in home
+-o ~/Movies/yt/%(title)s.%(ext)s
+
+# Quality cap
+-f "best[height<1080]"
+
+# Number of Retries
+-R 3
+
+# Other options
+--no-mark-watched
+--no-playlist
+--no-call-home
